@@ -1,0 +1,51 @@
+import pymssql
+
+server = r"VALKOV\SQLEXPRESS"
+dbname = r"BilLoKorm"
+zapros = """
+CREATE TABLE {nevt}(
+	[LOGDateTime] [datetime] NULL,
+	[UserID] [int] NULL,
+	[UserName] [varchar](50) NULL,
+	[CompName] [varchar](50) NULL,
+	[Modul] [varchar](100) NULL,
+	[TblName] [varchar](50) NULL,
+	[Act] [varchar](10) NULL,
+	[Mess] [varchar](2000) NULL,
+	[Params] [varchar](4000) NULL
+) ON [PRIMARY];
+
+WITH crida AS (
+    SELECT LOGDateTime, UserID, UserName, CompName, Modul, TblName, Act, Mess, Params, ( row_number() over (order by LOGDateTime) -1 )/{razm} + 1 AS num
+    FROM {baso}.dbo.{tablo}
+	--where LOGDateTime > convert(datetime, '2021-05-20 16:10:00', 121)
+)
+
+insert into {nevt}
+SELECT LOGDateTime, UserID, UserName, CompName, Modul, TblName, Act, Mess, Params from crida where num = {ii}
+
+SELECT @@rowcount
+"""
+razm = 100000
+baso = 'NLT5'
+tablo = 'okp_logs'
+sha = 'L'
+ii = 1
+
+#print (zapros.format(nevt=nevt, baso=baso, tablo=tablo, ii=ii, razm=razm))
+
+qvo = razm
+conn = pymssql.connect(host=server, database=dbname)
+cursor = conn.cursor()
+while qvo == razm :
+	nevt = sha + '{:03}'.format(ii)	
+	qvero = zapros.format(nevt=nevt, baso=baso, tablo=tablo, ii=ii, razm=razm)
+	cursor.execute(qvero)
+	row = cursor.fetchone()
+	qvo = row[0]
+	print("Qvo=%d --- %s" % (qvo, nevt))
+	ii = ii + 1
+
+conn.commit()
+cursor.close()
+conn.close()
