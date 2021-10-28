@@ -1,0 +1,119 @@
+﻿По русски
+  1  a_CleaveDirectionBF         0    1
+  2  a_EXCHANGE                  0    1
+  3  a_EXCHANGE1                 0    1
+  4  a_EXCHANGE2                 0    1
+  5  a_kimIMAnyWay               0    1
+  6  a_kimnums                   0    1
+  7  a_KoopM                     0    1
+  8  a_NOKIMNUMSinUOP            0    1
+  9  a_RWCArh_                   0    1
+ 10  a_tmpKOMPOZIT               0    1
+ 11  a_tmpSkladDocs              0    1
+ 12  a_TMPUOPKIMNUMS             0    1
+ 13  a_TMPUOPNUMS                0    1
+ 14  a_TOZ_PROPS                 0    1
+ 15  a1_TMPUOPNUMS               0    1
+ 16  ARH_CPL                     1   49
+ 17  ARH_DST                     0   13
+ 18  ARH_DST_ELEM                0   13
+ 19  ARH_DSTNUMS                 0    6
+ 20  ARH_ESKORTLIST              0    8
+ 21  ARH_IPT                     0   13
+ 22  ARH_IPT_ELEM                0   10
+ 23  ARH_IPT_RECEIVE             0    6
+ 24  ARH_IPTNUMS                 0    7
+ 25  ARH_IPTNUMSRECEIVE          0    4
+ 26  ARH_MKOOP                   0    8
+ 27  ARH_OPLAN_DATA              0    4
+ 28  ARH_POT                     1   24
+ 29  ARH_PPP                     1   36
+ 30  ARH_PPPDEP                  1    3
+ 31  ARH_RAM                     0   14
+ 32  ARH_SDT                     0   15
+ 33  ARH_SDT_ELEM                0   36
+ 34  ARH_SDTUOP                  0    4
+ 35  ARH_TECHDOUBLES             0    7
+ 36  ARH_TOZ                     4   69
+ 37  ARH_TOZ_VERIFYNOM           0    6
+ 38  ARH_TOZ_WPL                 0    3
+ 39  ARH_UBR                     0   36
+ 40  ARH_UBRDEP                  0   11
+ 41  ARH_UNOM                    0    7
+ 42  ARH_UOP                     5   39
+ 43  ARH_UOPKIMNUMS              0   10
+ 44  ARH_UOPNUMS                 0    6
+ 45  ARH_VELEM                   0   10
+ 46  arh_verify                  0   14
+ 47  arh_verify_snum             0    5
+ 48  ARH_VerifyParam_OBJ         0   13
+ 49  ARH_VOPER                   0   16
+ 50  OKP_BufLog                  0    9
+ 51  OKP_CGMSteps                6    4
+ 52  OKP_CPLLOG                292   10
+ 53  OKP_CURRENCY                5    3
+ 54  OKP_Directories            46    8
+ 55  OKP_DSTNUMS                 0    6
+ 56  OKP_InventoryWP             1    7
+ 57  OKP_INVGRP                  9    4
+ 58  OKP_IPTNUMS                 0    7
+ 59  OKP_KIM                     0    5
+ 60  OKP_Logs                    1    9
+ 61  Okp_MatKompl               41   14
+ 62  OKP_Messages               95    7
+ 63  OKP_MKoop                   0    8
+ 64  OKP_MNF                    91    8
+ 65  OKP_NNUM                    0    4
+ 66  OKP_NOM_KTO                 3    6
+ 67  OKP_NOMLOG                 90    9
+ 68  OKP_OBSP                   88   32
+ 69  OKP_OperRes                 0   18
+ 70  OKP_OrderSum                9    8
+ 71  OKP_POT                   519   24
+ 72  OKP_PPPDEP                258    3
+ 73  OKP_ReportParameters     1154    3
+ 74  OKP_Reports               212    9
+ 75  OKP_ReportsBlanks         234    2
+ 76  OKP_ReportsBlanksNames    234    5
+ 77  OKP_ReportsScripts        212    2
+ 78  OKP_RKim                    0   31
+ 79  OKP_RZP_DATA               19   42
+ 80  OKP_STK                    38   11
+ 81  OKP_sysFiles               43    5
+ 82  OKP_sysLocks                0    5
+ 83  OKP_sysLogins               0    5
+ 84  OKP_SystemProperties        1   76
+ 85  OKP_TERMINAL_USR           49    9
+ 86  OKP_TGRP                    3    5
+ 87  OKP_TGRP_DATA               7    5
+ 88  OKP_TPC_POT                 0    8
+ 89  OKP_TPC_TOZ                 0   43
+ 90  OKP_TPC_TOZ_WPL             0    3
+ 91  OKP_TPC_WCRCapacity         0    6
+ 92  OKP_TRNDOC                 79   19
+ 93  OKP_TRNGRP                  0    4
+ 94  OKP_UBRNUMS                 0    7
+ 95  OKP_UserReports             0    2
+ 96  OKP_VAR_EXWRH               0    3
+ 97  OKP_VAR_KIMTYPE            32    3
+ 98  OKP_VAR_PARAM               8   20
+ 99  OKP_VAR_POTS              907   37
+100  OKP_VAR_RZP                 0    8
+101  OKP_VAR_RZP_DATA            0   15
+102  OKP_VAR_SZP                 0    5
+103  OKP_VElem                   0   10
+104  OKP_VObj                    0   10
+105  OKP_VOper                   0   16
+106  OKP_VPlan                   1    6
+107  OKP_WorkCond                4    2
+108  OKP_WRK                     3   13
+109  OKP_WRK_ACTIV               0   10
+110  OKP_Z                       0    1
+111  OKP_Z1                      0    1
+112  OKP_ZAT                     0   15
+113  OKP_ZatBase                 6    2
+114  OKP_ZATCalcs                0    6
+115  OKP_ZatCodes               32    2
+116  OKP_ZATR                   58   18
+117  OKP_ZPR                     0   17
+118  OKP_ZY                      0    1

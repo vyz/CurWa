@@ -1,0 +1,30 @@
+"\n    Constructor for creating a connection to the database. 
+	Returns a\n
+    Connection object.\n\n
+    :param server: database host\n
+    :type server: string\n
+    :param user: database user to connect as. Default value: None.\n
+    :type user: string\n
+    :param password: user's password. Default value: None.\n
+    :type password: string\n
+    :param database: the database to initially connect to\n
+    :type database: string\n
+    :param timeout: query timeout in seconds, default 0 (no timeout)\n
+    :type timeout: int\n
+    :param login_timeout: timeout for connection and login in seconds, default 60\n
+    :type login_timeout: int\n
+    :param charset: character set with which to connect to the database\n
+    :type charset: string\n
+    :keyword as_dict: whether rows should be returned as dictionaries instead of tuples.\n
+    :type as_dict: boolean\n
+    :keyword appname: Set the application name to use for the connection\n
+    :type appname: string\n
+    :keyword port: the TCP port to use to connect to the server\n
+    :type port: string\n
+    :keyword conn_properties: SQL queries to send to the server upon connection\n
+	establishment. Can be a string or another kind\n
+	of iterable of strings\n
+    :keyword autocommit: Whether to use default autocommiting mode or not\n
+    :type autocommit: boolean\n
+    :keyword tds_version: TDS protocol version to use.\n
+    :type tds_version: string\n    "

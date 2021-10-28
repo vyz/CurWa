@@ -18,7 +18,7 @@ CREATE TABLE {nevt}(
 WITH crida AS (
     SELECT LOGDateTime, UserID, UserName, CompName, Modul, TblName, Act, Mess, Params, ( row_number() over (order by LOGDateTime) -1 )/{razm} + 1 AS num
     FROM {baso}.dbo.{tablo}
-	--where LOGDateTime > convert(datetime, '2021-04-29 23:03:28.843', 121)
+	--where LOGDateTime > convert(datetime, '2021-05-20 16:10:00', 121)
 )
 
 insert into {nevt}
@@ -27,9 +27,9 @@ SELECT LOGDateTime, UserID, UserName, CompName, Modul, TblName, Act, Mess, Param
 SELECT @@rowcount
 """
 razm = 25000
-baso = 'NLT0607'
-tablo = 'okp_logs'		#'okp_bufLog' 	'okp_logs' 
-sha = 'L'
+baso = 'BilLoKorm'
+tablo = 'B007' 		#'okp_logs' 
+sha = 'B7'
 ii = 1
 
 #print (zapros.format(nevt=nevt, baso=baso, tablo=tablo, ii=ii, razm=razm))
