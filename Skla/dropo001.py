@@ -5,14 +5,13 @@ dbname = r"BilLoKorm"
 zaprosTablo = """
 SELECT name FROM sys.objects 
 WHERE type in (N'U') 
-and  [name] LIKE '{sha}___'
+and  ([name] LIKE 'B___' OR [name] LIKE 'L___')
 """
 zaprosDropo = """
 DROP TABLE dbo.{tbdrop}
 """
-sha = 'L'
 
-qvero = zaprosTablo.format(sha=sha)
+qvero = zaprosTablo
 conn = pymssql.connect(host=server, database=dbname)
 cursor = conn.cursor()
 cursor.execute(qvero)
