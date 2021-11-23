@@ -1,18 +1,28 @@
 import logging
 import logging.config
 import pymssql
+import yaml
 
 server = r"VALKOV\SQLEXPRESS"
 dbnameGet = r"BilLoKorm"
 dbnameZab = r"BigoLogo"
-
+ConnPropy = """
+SET ARITHABORT ON;
+SET CONCAT_NULL_YIELDS_NULL ON;
+SET ANSI_NULLS ON;
+SET ANSI_NULL_DFLT_ON ON;
+SET ANSI_PADDING ON;
+SET ANSI_WARNINGS ON;
+SET ANSI_NULL_DFLT_ON ON;
+SET IMPLICIT_TRANSACTIONS OFF;
+SET CURSOR_CLOSE_ON_COMMIT OFF;
+SET QUOTED_IDENTIFIER ON;
+SET TEXTSIZE 2147483647;
+"""
 
 def main():
-    sha = 'L'
-    istart = 1
-    iqvo = 10
+    (sha, dibo, istart, iqvo) = getFromYaml()
     ii = 1
-    dibo = 'Eb0601'
     listo = gettablolist(sha, istart)
     for z in listo:
         if ii > iqvo:
@@ -108,7 +118,8 @@ def zabrosbazy(bname: str, dibo: str):
     SELECT @nzapo
     """
     qvero = zapros.format(dibo=dibo, bname=bname)
-    conn = pymssql.connect(host=server, database=dbnameZab)
+    conn = pymssql.connect(host=server, database=dbnameZab, \
+        appname='ZapuskSerii', conn_properties=ConnPropy)
     cursor = conn.cursor()
     cursor.execute(qvero)
     row=cursor.fetchall()
@@ -117,6 +128,12 @@ def zabrosbazy(bname: str, dibo: str):
     conn.commit()
     conn.close()
     return reto
+
+
+def getFromYaml():
+    with open('cfgZapSer.yaml') as fh:
+        read_data = yaml.load(fh, Loader=yaml.FullLoader)
+    return (read_data['LetterStart'], read_data['DataBaseForLogoWrite'], read_data['NumberStartTable'], read_data['QvoMaxLoadedTables'])
 
 
 if __name__ == '__main__':

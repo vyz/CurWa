@@ -27,9 +27,9 @@ SELECT LOGDateTime, UserID, UserName, CompName, Modul, TblName, Act, Mess, Param
 SELECT @@rowcount
 """
 razm = 25000
-baso = 'Eb0601'
-tablo = 'okp_logs'		#'okp_bufLog' 	'okp_logs' 
-sha = 'L'
+baso = 'Aero0915'
+tablo = 'okp_bufLog'		#'okp_bufLog' 	'okp_logs' 
+sha = 'B'
 ii = 1
 
 #print (zapros.format(nevt=nevt, baso=baso, tablo=tablo, ii=ii, razm=razm))
