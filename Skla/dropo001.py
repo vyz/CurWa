@@ -1,6 +1,6 @@
 import pymssql
 
-server = r"VALKOV\SQLEXPRESS"
+server = r"VALKOV\LOPO"
 dbname = r"BilLoKorm"
 zaprosTablo = """
 SELECT name FROM sys.objects 

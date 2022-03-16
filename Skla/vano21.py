@@ -1,6 +1,6 @@
 import pymssql
 
-server = r"VALKOV\SQLEXPRESS"
+server = r"VALKOV\LOPO"
 dbname = r"BilLoKorm"
 zapros = """
 CREATE TABLE {nevt}(
@@ -27,7 +27,7 @@ SELECT LOGDateTime, UserID, UserName, CompName, Modul, TblName, Act, Mess, Param
 SELECT @@rowcount
 """
 razm = 25000
-baso = 'Aero0915'
+baso = 'ITT0112'
 tablo = 'okp_bufLog'		#'okp_bufLog' 	'okp_logs' 
 sha = 'B'
 ii = 1

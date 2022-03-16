@@ -1,0 +1,156 @@
+﻿  1 Aero0915             384 D:\okpo\Bases\kruk0915.mdf               2021-09-15
+  1                        5 D:\okpo\Bases\kruk0915.ldf               2021-09-15
+  2 Aero0915_Service     415 D:\okpo\Bases\kruk0915Serv.mdf           2021-09-15
+  2                      600 D:\okpo\Bases\kruk0915Serv.ldf           2021-09-15
+  3 BigoLogo            6728 E:\BasoBig\BigoLogo.mdf                  2021-08-25
+  3                     2760 E:\BasoBig\BigoLogo.ldf                  2021-08-25
+  4 BilLoKorm            776 D:\okpo\Bases\BiloKorm.mdf               2021-09-06
+  4                      840 D:\okpo\Bases\BiloKorm.ldf               2021-09-06
+  5 Cuprum                85 D:\okpo\Bases\Cuprum.mdf                 2020-12-21
+  5                        5 D:\okpo\Bases\Cuprum.ldf                 2020-12-21
+  6 Cuprum_Service       410 D:\okpo\Bases\CuprumServ.mdf             2020-12-21
+  6                      180 D:\okpo\Bases\CuprumServ.ldf             2020-12-21
+  7 Doly                 135 D:\okpo\Bases\Doly.mdf                   2020-12-15
+  7                        5 D:\okpo\Bases\Doly.ldf                   2020-12-15
+  8 Doly_Service         400 D:\okpo\Bases\DolyServ.mdf               2020-12-15
+  8                      210 D:\okpo\Bases\DolyServ.ldf               2020-12-15
+  9 Eb0601              1722 D:\okpo\Bases\Eb0601.mdf                 2021-06-01
+  9                       69 D:\okpo\Bases\Eb0601.ldf                 2021-06-01
+ 10 Eb0601_Service       420 D:\okpo\Bases\Eb0601Serv.mdf             2021-06-01
+ 10                     2770 D:\okpo\Bases\Eb0601Serv.ldf             2021-06-01
+ 11 Foro                 117 D:\okpo\Bases\ForoV.mdf                  2020-12-28
+ 11                        0 D:\okpo\Bases\ForoV.ldf                  2020-12-28
+ 12 Gosoma               100 D:\okpo\Bases\gosoma.mdf                 2020-10-02
+ 12                        4 D:\okpo\Bases\gosoma.ldf                 2020-10-02
+ 13 GraphDemo              8 D:\Progo\MSSQL\MSSQL15....\GraphDemo.mdf 2021-06-24
+ 13                        8 D:\Progo\MSSQL\MSSQ...\GraphDemo_log.ldf 2021-06-24
+ 14 ITT1015             2507 D:\okpo\Bases\ITT1015.mdf                2021-10-28
+ 14                        5 D:\okpo\Bases\ITT1015.ldf                2021-10-28
+ 15 ITT1015_Service      465 D:\okpo\Bases\ITT1015Serv.mdf            2021-10-28
+ 15                       11 D:\okpo\Bases\ITT1015Serv.ldf            2021-10-28
+ 16 Karlo1104            418 D:\okpo\Bases\Karlo1104.mdf              2021-11-08
+ 16                        5 D:\okpo\Bases\Karlo1104.ldf              2021-11-08
+ 17 Karlo1104_Service    440 D:\okpo\Bases\Karlo1104Serv.mdf          2021-11-08
+ 17                     1560 D:\okpo\Bases\Karlo1104Serv.ldf          2021-11-08
+ 18 Kedr0525             209 D:\okpo\Bases\Kedr0525.mdf               2021-05-25
+ 18                        5 D:\okpo\Bases\Kedr0525.ldf               2021-05-25
+ 19 Kedr0525_Service     380 D:\okpo\Bases\Kedr0525Serv.mdf           2021-05-25
+ 19                    10950 D:\okpo\Bases\Kedr0525Serv.ldf           2021-05-25
+ 20 Komus1112            190 D:\okpo\Bases\Gar1112.mdf                2021-11-12
+ 20                        5 D:\okpo\Bases\Gar1112.ldf                2021-11-12
+ 21 Komus1112_Service    455 D:\okpo\Bases\Gar1112Serv.mdf            2021-11-12
+ 21                     3270 D:\okpo\Bases\Gar1112Serv.ldf            2021-11-12
+ 22 Kruk1103             105 D:\okpo\Bases\Kruk1103.mdb               2021-11-08
+ 22                        5 D:\okpo\Bases\Kruk1103.ldb               2021-11-08
+ 23 Kruk1103_Service     440 D:\okpo\Bases\Kruk1103Serv.mdb           2021-11-08
+ 23                     1560 D:\okpo\Bases\Kruk1103Serv.ldb           2021-11-08
+ 24 Licha                 19 D:\okpo\Bases\Licha.mdf                  2020-10-02
+ 24                       26 D:\okpo\Bases\Licha.ldf                  2020-10-02
+ 25 Nexto                343 C:\ProgramData\Nexto.mdf                 2021-04-19
+ 25                        5 C:\ProgramData\Nexto.ldf                 2021-04-19
+ 26 Nexto_Service        335 D:\okpo\Bases\NextoServ.mdf              2021-04-19
+ 26                      355 D:\okpo\Bases\NextoServ.ldf              2021-04-19
+ 27 NLT0917             3623 D:\okpo\Bases\NLT0917.mdf                2021-09-20
+ 27                        0 D:\okpo\Bases\NLT0917.ldf                2021-09-20
+ 28 NLT0917_Service      498 D:\okpo\Bases\NLT0917Serv.mdf            2021-09-20
+ 28                      245 D:\okpo\Bases\NLT0917Serv.ldf            2021-09-20
+ 29 O5010                 90 D:\okpo\Bases\O5010\OKP.mdf              2021-06-16
+ 29                       45 D:\okpo\Bases\O5010\OKP_log.ldf          2021-06-16
+ 30 O5010_Service        315 D:\okpo\Bases\O5010\OKP_Service.mdf      2021-06-16
+ 30                       65 D:\okpo\Bases\O5010\OKP_Service_log.ldf  2021-06-16
+ 31 O611                  75 D:\okpo\Bases\Standart\O611.mdf          2020-09-15
+ 31                        5 D:\okpo\Bases\Standart\O611log.ldf       2020-09-15
+ 32 O611_Service         330 D:\okpo\Bases\Standart\O611_Service.mdf  2020-09-15
+ 32                       55 D:\okpo\Bases\Sta...\O611_Servicelog.ldf 2020-09-15
+ 33 O612                 105 D:\okpo\Bases\Standart\O612.mdf          2020-09-15
+ 33                        5 D:\okpo\Bases\Standart\O612log.ldf       2020-09-15
+ 34 O612_Service         390 D:\okpo\Bases\Standart\O612_Service.mdf  2020-09-15
+ 34                       70 D:\okpo\Bases\Sta...\O612_Servicelog.ldf 2020-09-15
+ 35 O631snb              134 D:\okpo\Bases\O631\OKP.mdf               2021-01-11
+ 35                        5 D:\okpo\Bases\O631\OKP_log.ldf           2021-01-11
+ 36 O631snb_Service      395 D:\okpo\Bases\O631\OKP_Service.mdf       2021-01-11
+ 36                      195 D:\okpo\Bases\O631\OKP_Service_log.ldf   2021-01-11
+ 37 O632                 100 D:\okpo\Bases\O632\OKP.mdf               2021-03-10
+ 37                        5 D:\okpo\Bases\O632\OKP_log.ldf           2021-03-10
+ 38 O632_Service         400 D:\okpo\Bases\O632\OKP_Service.mdf       2021-03-10
+ 38                       70 D:\okpo\Bases\O632\OKP_Service_log.ldf   2021-03-10
+ 39 O633                 100 D:\okpo\Bases\O633\OKP.mdf               2021-06-16
+ 39                       50 D:\okpo\Bases\O633\OKP_log.ldf           2021-06-16
+ 40 O633_Service         400 D:\okpo\Bases\O633\OKP_Service.mdf       2021-06-16
+ 40                       70 D:\okpo\Bases\O633\OKP_Service_log.ldf   2021-06-16
+ 41 O634                 131 D:\okpo\Bases\O634\OKP.mdf               2021-05-31
+ 41                        5 D:\okpo\Bases\O634\OKP_log.ldf           2021-05-31
+ 42 O634_Service         400 D:\okpo\Bases\O634\OKP_Service.mdf       2021-05-31
+ 42                      305 D:\okpo\Bases\O634\OKP_Service_log.ldf   2021-05-31
+ 43 O634sk               140 D:\okpo\Bases\O634sk\OKP.mdf             2021-06-18
+ 43                      165 D:\okpo\Bases\O634sk\OKP_log.ldf         2021-06-18
+ 44 O634sk_Service       500 D:\okpo\Bases\O634sk\OKP_Service.mdf     2021-06-18
+ 44                      170 D:\okpo\Bases\O634sk\OKP_Service_log.ldf 2021-06-18
+ 45 O635                 105 D:\okpo\Bases\O635\OKP.mdf               2021-07-09
+ 45                       50 D:\okpo\Bases\O635\OKP_log.ldf           2021-07-09
+ 46 O635_Service         405 D:\okpo\Bases\O635\OKP_Service.mdf       2021-07-09
+ 46                       75 D:\okpo\Bases\O635\OKP_Service_log.ldf   2021-07-09
+ 47 O636                 130 D:\okpo\Bases\O636\OKP.mdf               2021-08-05
+ 47                       50 D:\okpo\Bases\O636\OKP_log.ldf           2021-08-05
+ 48 O636_Service         405 D:\okpo\Bases\O636\OKP_Service.mdf       2021-08-05
+ 48                       90 D:\okpo\Bases\O636\OKP_Service_log.ldf   2021-08-05
+ 49 O640                 135 D:\okpo\Bases\O640\OKP.mdf               2021-09-02
+ 49                       50 D:\okpo\Bases\O640\OKP_log.ldf           2021-09-02
+ 50 O640_Service         425 D:\okpo\Bases\O640\OKP_Service.mdf       2021-09-02
+ 50                      100 D:\okpo\Bases\O640\OKP_Service_log.ldf   2021-09-02
+ 51 Obslugo              136 D:\okpo\Bases\Obslugo.mdf                2020-10-02
+ 51                       72 D:\okpo\Bases\Obslugo.ldf                2020-10-02
+ 52 OKP                  110 C:\ProgramData\SPRUT Technolo...\OKP.mdf 2021-12-06
+ 52                       50 C:\ProgramData\SPRUT Tech...\OKP_log.ldf 2021-12-06
+ 53 OKP_Service          500 C:\ProgramData\SPRUT ...\OKP_Service.mdf 2021-12-06
+ 53                       80 C:\ProgramData\SP...\OKP_Service_log.ldf 2021-12-06
+ 54 OKP641               145 D:\okpo\Bases\O641\OKP.mdf               2021-10-18
+ 54                        5 D:\okpo\Bases\O641\OKP_log.ldf           2021-10-18
+ 55 OKP641_Service       425 D:\okpo\Bases\O641\OKP_Service.mdf       2021-10-18
+ 55                      140 D:\okpo\Bases\O641\OKP_Service_log.ldf   2021-10-18
+ 56 OKP642               105 C:\ProgramData\SPRUT Technolo...\OKP.mdf 2021-11-26
+ 56                        5 C:\ProgramData\SPRUT Tech...\OKP_log.ldf 2021-11-26
+ 57 OKP642_Service       425 C:\ProgramData\SPRUT ...\OKP_Service.mdf 2021-11-26
+ 57                       75 C:\ProgramData\SP...\OKP_Service_log.ldf 2021-11-26
+ 58 OKP700               142 D:\okpo\Bases\O700e\OKP.mdf              2021-11-26
+ 58                        7 D:\okpo\Bases\O700e\OKP_log.ldf          2021-11-26
+ 59 OKP700_Service       505 D:\okpo\Bases\O700e\OKP_Service.mdf      2021-11-26
+ 59                      210 D:\okpo\Bases\O700e\OKP_Service_log.ldf  2021-11-26
+ 60 Penzo               5000 E:\BasoBig\Penzo.mdf                     2021-07-02
+ 60                       99 E:\BasoBig\Penzo.ldf                     2021-07-02
+ 61 Penzo_Service        475 E:\BasoBig\PenzoServ.mdf                 2021-07-02
+ 61                        9 E:\BasoBig\PenzoServ.ldf                 2021-07-02
+ 62 Radio0818            530 D:\okpo\Bases\Radio0818.mdf              2021-08-18
+ 62                      166 D:\okpo\Bases\Radio0818.ldf              2021-08-18
+ 63 Radio0818_Service    465 D:\okpo\Bases\Radio0818Serv.mdf          2021-08-18
+ 63                      370 D:\okpo\Bases\Radio0818Serv.ldf          2021-08-18
+ 64 Sherman             1130 D:\okpo\Bases\Sherman.mdf                2021-04-19
+ 64                      160 D:\okpo\Bases\Sherman.ldf                2021-04-19
+ 65 Sherman_Service      400 D:\okpo\Bases\ShermanServ.mdf            2021-04-20
+ 65                       70 D:\okpo\Bases\ShermanServ.ldf            2021-04-20
+ 66 Steklo0823          4379 E:\BasoBig\Steklo0823.mdf                2021-08-24
+ 66                      194 E:\BasoBig\Steklo0823.ldf                2021-08-24
+ 67 Steklo0823_Service   475 E:\BasoBig\Steklo0823Serv.mdf            2021-08-24
+ 67                    12615 E:\BasoBig\Steklo0823Serv.ldf            2021-08-24
+ 68 Tracko               136 D:\okpo\Bases\Tracko.mdf                 2020-12-14
+ 68                       72 D:\okpo\Bases\Tracko_log.ldf             2020-12-14
+ 69 Tula1021            5056 D:\okpo\Bases\Tula1021.mdf               2021-10-22
+ 69                        0 D:\okpo\Bases\Tula1021.ldf               2021-10-22
+ 70 Tula1021_Service     475 D:\okpo\Bases\Tula1021Serv.mdf           2021-10-22
+ 70                        9 D:\okpo\Bases\Tula1021Serv.ldf           2021-10-22
+ 71 Umash                141 D:\okpo\Bases\Umash.mdf                  2021-09-03
+ 71                        5 D:\okpo\Bases\Umash.ldf                  2021-09-03
+ 72 Umash_Service        405 D:\okpo\Bases\UmashServ.mdf              2021-09-03
+ 72                       90 D:\okpo\Bases\UmashServ.ldf              2021-09-03
+ 73 Vektor               185 D:\okpo\Bases\Vektor.mdf                 2021-06-10
+ 73                        6 D:\okpo\Bases\Vektor.ldf                 2021-06-10
+ 74 Vektor_Service       315 D:\okpo\Bases\VektorServ.mdf             2021-06-16
+ 74                       65 D:\okpo\Bases\VektorServ.ldf             2021-06-16
+ 75 Vertex               129 D:\okpo\Bases\Vertex.mdf                 2020-12-11
+ 75                      813 D:\okpo\Bases\Vertex.ldf                 2020-12-11
+ 76 Vertex_Service       382 D:\okpo\Bases\VertexServ.mdf             2020-12-11
+ 76                      200 D:\okpo\Bases\VertexServ.ldf             2020-12-11
+ 77 Vysota                85 D:\okpo\Bases\Vysota.mdf                 2021-02-18
+ 77                        5 D:\okpo\Bases\Vysota.ldf                 2021-02-18
+ 78 Vysota_Service       400 D:\okpo\Bases\VysotaServ.mdf             2021-02-18
+ 78                     3400 D:\okpo\Bases\VysotaServ.ldf             2021-02-18

@@ -3,7 +3,7 @@ import logging.config
 import pymssql
 import yaml
 
-server = r"VALKOV\SQLEXPRESS"
+server = r"VALKOV\LOPO"
 dbnameGet = r"BilLoKorm"
 dbnameZab = r"BigoLogo"
 ConnPropy = """

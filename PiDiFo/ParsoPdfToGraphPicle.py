@@ -9,8 +9,8 @@ import networkx as nx
 import pickle
 
 
-pdf_document = r"E:\KoPo\Helpo\User_6_4_0_210815.pdf"
-
+pdf_document = r"E:\KoPo\Helpo\User_6_4_2_211209.pdf"
+picleGraphFile = "grapho642.pickle"
 
 def main():
     doc = fitz.open(pdf_document)
@@ -33,10 +33,12 @@ def main():
     ll = len(diConto)
     logger.debug("Qvo : {} numo : {}".format(ll, numo))
     gro = CreateNW(diConto)
-    with open('grapho01.pickle', 'wb') as f:
+    with open(picleGraphFile, 'wb') as f:
         pickle.dump(gro, f, pickle.HIGHEST_PROTOCOL)
     derevo = nx.algorithms.tree.recognition.is_tree(gro)
     logger.debug(derevo)
+    logger.info("PDF-файл -> %s", pdf_document)
+    logger.info("Picle-файл -> %s", picleGraphFile)
 
 
 def ParsoContoPage(numo: int, pago) -> tuple:
