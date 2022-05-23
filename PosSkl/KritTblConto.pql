@@ -1,0 +1,34 @@
+CREATE TABLE Conta (
+	id serial,
+	refVerso int NOT NULL,
+	xrefa int NOT NULL,
+	frox real NOT NULL,
+	fropigo int NOT NULL,
+	pigo int NOT NULL,
+	toxo real NOT NULL,
+	toyo real NOT NULL,
+	uro text NOT NULL,
+	koda text NOT NULL,
+	lvl int NOT NULL,
+	lnom int NOT NULL,
+	namo text NOT NULL,
+	ida int NOT NULL,
+	CONSTRAINT PK_Conta PRIMARY KEY (id)
+)
+;
+
+COMMENT ON TABLE Conta IS 'Внутренняя ссылка, обогащённая данными из содержания';
+COMMENT ON COLUMN Conta.id IS 'ID записи';
+COMMENT ON COLUMN Conta.refVerso IS 'Ссылка на номер версии документации';
+COMMENT ON COLUMN Conta.xrefa IS 'Внутренний Id перекрёстной ссылки в pdf-документе';
+COMMENT ON COLUMN Conta.frox IS 'Y-координата строки содержания на текущей странице';
+COMMENT ON COLUMN Conta.fropigo IS 'Номер страницы, на которой расположена ссылка + 1';
+COMMENT ON COLUMN Conta.pigo IS 'Номер страницы, на которую ссылается ссылка + 1';
+COMMENT ON COLUMN Conta.toxo IS 'Координата X начала адресуемого текста';
+COMMENT ON COLUMN Conta.toyo IS 'Координата Y начала адресуемого текста';
+COMMENT ON COLUMN Conta.uro IS 'URI внутренней ссылки';
+COMMENT ON COLUMN Conta.koda IS 'Иерархический код ссылочного пункта';
+COMMENT ON COLUMN Conta.lvl IS 'Уровень элемента';
+COMMENT ON COLUMN Conta.lnom IS 'Порядковый номер на текущем уровне';
+COMMENT ON COLUMN Conta.namo IS 'Наименование ссылочного пункта';
+COMMENT ON COLUMN Conta.ida IS 'Порядковый номер, ID';
