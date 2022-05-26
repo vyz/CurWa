@@ -1,0 +1,29 @@
+['bigint', 'float', 'varchar', 'datetime', 'int', '', 'tinyint', 'bit', 'smallint', 'key', 'money', 'char', 'uniqueidentifier', 'sysname', ...]
+
+
+'bigint', 'float', 'varchar', 'datetime', 'int', '', 'tinyint', 'bit', 'smallint', 'key', 'money',
+'char', 'uniqueidentifier', 'sysname', 'nchar', 'dbo.prt_len', 'dbo.g_code', 'dbo.d_date', 'image',
+'dbo.wrh_len', 'dbo.wrh_nam', 'dbo.doc_len', 'dbo.g_count', 'dbo.ccc_len', 'dbo.art_len', 'dbo.pin_len',
+'varbinary', 'dbo.eiz_len', 'dbo.g_numb', 'real', 'timestamp', 'ntext', 'dbo.g_quant_f', 'text', 'dbo.g_price'
+
+'bigint', 'float', 'varchar', 'datetime', 'int', 'tinyint', 'bit', 'smallint', 
+'money', 'char', 'uniqueidentifier', 'sysname', 'nchar',  
+'image', 'varbinary', 'real', 'timestamp', 'ntext', 'text', 
+
+'dbo.prt_len' : ,
+'dbo.g_code',
+'dbo.d_date',
+'dbo.wrh_len', 
+'dbo.wrh_nam', 
+'dbo.doc_len', 
+'dbo.g_count', 
+'dbo.ccc_len', 
+'dbo.art_len'
+'dbo.pin_len'
+'dbo.eiz_len', 
+'dbo.g_numb', 
+'dbo.g_quant_f', 
+'dbo.g_price'
+
+2022-05-24 14:55:03,815 - TabloAnaloy - DEBUG - Набор типов: ['bigint', 'float', 'varchar', 'datetime', 'int', 'tinyint', 'bit', 'smallint', 'key', 'money', 'char', 'uniqueidentifier', 'sysname', 'nchar', 'dbo.prt_len', 'dbo.g_code', 'dbo.d_date', 'image', 'dbo.wrh_len', 'dbo.wrh_nam', 'dbo.doc_len', 'dbo.g_count', 'dbo.ccc_len', 'dbo.art_len', 'dbo.pin_len', 'varbinary', 'dbo.eiz_len', 'dbo.g_numb', 'real', 'timestamp', 'ntext', 'dbo.g_quant_f', 'text', 'dbo.g_price']
+2022-05-24 15:15:31,930 - TabloAnaloy - DEBUG - Набор типов: ['bigint', 'float', 'varchar', 'datetime', 'int', 'tinyint', 'bit', 'smallint',        'money', 'char', 'uniqueidentifier', 'sysname', 'nchar', 'dbo.prt_len', 'dbo.g_code', 'dbo.d_date', 'image', 'dbo.wrh_len', 'dbo.wrh_nam', 'dbo.doc_len', 'dbo.g_count', 'dbo.ccc_len', 'dbo.art_len', 'dbo.pin_len', 'varbinary', 'dbo.eiz_len', 'dbo.g_numb', 'real', 'timestamp', 'ntext', 'dbo.g_quant_f', 'text', 'dbo.g_price']

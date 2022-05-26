@@ -6,6 +6,25 @@ import regex
 
 flo = 'CREATE_Tables702.sql'
 fota = 'E:\\Wabo\\pyato\\CurWa\\TabloAnaloy\\otta\\'
+LMsoTypes = ['bigint', 'float', 'varchar', 'datetime', 'int',
+             'tinyint', 'bit', 'smallint', 'money', 'char',
+             'uniqueidentifier', 'sysname', 'nchar', 'image',
+             'varbinary', 'real', 'timestamp', 'ntext', 'text']
+DUserTypes = {'dbo.prt_len': 'varchar(5)',
+              'dbo.g_code': 'varchar(1)',
+              'dbo.d_date': 'datetime',
+              'dbo.wrh_len': 'varchar(10)',
+              'dbo.wrh_nam': 'varchar(50)',
+              'dbo.doc_len': 'varchar(50)',
+              'dbo.g_count': 'int',
+              'dbo.ccc_len': 'varchar(10)',
+              'dbo.art_len': 'varchar(8)',
+              'dbo.pin_len': 'varchar(5)',
+              'dbo.eiz_len': 'varchar(3)',
+              'dbo.g_numb': 'varchar(10)',
+              'dbo.g_quant_f': 'float',
+              'dbo.g_price': 'money'}
+LNewTypes = []
 
 
 def main():
@@ -23,11 +42,12 @@ def main():
                               encoding="utf_8")
                     vx.write(minno)
                     vx.close()
-                    (fildy, constra) = FieldoParso(topo)
                     logger.debug("TabloSet %s", topo)
+                    (fildy, constra) = FieldoParso(topo)
                 numa += 1
                 minno = ''
             minno += line
+    logger.info("!!!Новые типы: %s", repr(LNewTypes))
 
 
 def VanTablo(conto: str) -> tuple:
@@ -35,7 +55,7 @@ def VanTablo(conto: str) -> tuple:
 (?<rec> #capturing group rec
     \( #open parenthesis
     (?: #non-capturing group
-        [^()]+ #anyting but parenthesis one or more times without backtracking
+        [^()]+ #anything but parenthesis one or more times without backtracking
     | #or
     (?&rec) #recursive substitute of group rec
     )*
@@ -75,8 +95,11 @@ def Deldbo(sinno: str) -> str:
 
 
 def FieldoParso(sinno: str) -> tuple:
-# Первые предпосылки:
-# Каждое поле определяется в одной строке.
+    '''
+    Первые предпосылки:
+    Каждое поле определяется в одной строке.
+    Увы не сработало (OKP_PLN)
+    '''
     fli = []
     ogli = []
     nabo = sinno.split('\n')
@@ -85,38 +108,142 @@ def FieldoParso(sinno: str) -> tuple:
         if tt.startswith('(') or tt.startswith(')') or len(tt) == 0:
             continue
         if tt.endswith(','):
-            tt = tt[:-1]
+            tt = tt[:-1].rstrip()
         clo = SkobkoDav(tt)
-        lwo = clo.split(' ')
-        qwo = len(lwo)
-        if lwo[0].lower() == 'constraint':
-            ogli = ConstraintParso(clo, lwo, qwo)
-        else: 
-            fildo = lwo[0]
-            (mso, dln, fUser, uNamo) = TypoDefo(lwo[1])
-            fana = False
-            for (nn, ewa) in enumerate(lwo[2:]):
-                if fana:
-                    continue
-                if ewa.lower() == 'not':
-                    if lwo[nn+3].lower() == 'null':
-                        fNullo = False
-                    zOgr = lwo[nn+3]
-                    fana = True
-                if ewa.lower() == 'constraint':
-                    fOgr = True
-                    zOgr = lwo[nn+3]
-                    fana = True
-
+        # Вот такой изврат для обхода несбывшейся первой предпосылки
+        lstro = clo.split(', ')
+        zz = len(lstro)
+        if zz > 1:
+            logger.info("!!Более одного поля в строке %s", clo)
+        for flo in lstro:
+            lwo = re.split(r'\s+', flo.strip())
+            qwo = len(lwo)
+            if lwo[0].lower() == 'constraint' or \
+               lwo[0].lower() == 'primary' and lwo[1].lower() == 'key':
+                ogli = ConstraintParso(flo, lwo, qwo)
+            else:
+                fildo = lwo[0]
+                (mso, dln, fUser, uNamo) = TypoDefo(lwo[1])
+                fana = False
+                fIdnty = False
+                fNullo = True  # Умолчание в MS SQL
+                fOgr = False
+                fColla = False
+                zOgr = ''
+                nOgr = ''
+                kfa = 0
+                for (nn, ewa) in enumerate(lwo[2:]):
+                    if fana and kfa > 0:
+                        kfa -= 1
+                        continue
+                    if ewa.lower() == 'not':
+                        if lwo[nn+3].lower() == 'null':
+                            fNullo = False
+                        fana = True
+                        kfa = 1
+                    elif ewa.lower() == 'null':
+                        fNullo = True
+                    elif ewa.lower() == 'constraint':
+                        fOgr = True
+                        nOgr = lwo[nn+3]
+                        assert(lwo[nn+4].lower().startswith('default'))
+                        fana = True
+                        kfa = 1
+                    elif ewa.lower().startswith('default'):
+                        fOgr = True
+                        if ewa.endswith(')'):
+                            dd = ewa.split('(', 1)
+                            zOgr = dd[1][:-1].lower()
+                        else:
+                            zOgr = lwo[nn+3]
+                            kfa = 1
+                            fana = True
+                        if zOgr.startswith("'"):
+                            if zOgr.endswith("'"):
+                                # Очистка от одинарных кавычек
+                                # для текстовых умолчаний
+                                zOgr = zOgr[1:-1]
+                            else:
+                                # В кавычках выражение из нескольких слов
+                                zOgr = zOgr[1:]
+                                for zwo in lwo[nn+4:]:
+                                    kfa += 1
+                                    if zwo.endswith("'"):
+                                        zOgr = zOgr + ' ' + zwo[:-1]
+                                        break
+                                    else:
+                                        zOgr = zOgr + ' ' + zwo
+                    elif ewa.lower() == 'collate':
+                        fColla = True
+                        assert(lwo[nn+3].lower() == 'database_default')
+                        fana = True
+                        kfa = 1
+                    elif (ewa.lower() == 'identity(1,1)' or
+                          ewa.lower() == 'identity' or
+                          ewa.lower() == 'identity(1,10)'):
+                        # 10 таблица OKP_NNUM
+                        fIdnty = True
+                    else:
+                        logger.error("Нежданчик -> %s", ewa)
+                logger.debug(
+                 "Fildo: %s -> %s %s %s %s F-> %s N-> %s O-> %s %s %s C-> %s",
+                 fildo, mso, dln, fUser, uNamo, fIdnty, fNullo,
+                 fOgr, nOgr, zOgr, fColla)
     return(fli, ogli)
 
 
 def SkobkoDav(sinno: str) -> str:
-    return sinno
+    '''
+    Удалим пробелы внутри скобок и между словом и открывающейся скобкой
+    От табуляции не избавляемся:(
+    Просто разбивать будем не стринговым сплитом, а регекспным.
+    '''
+    patin = r'\s+(?=[^()]*\))'
+    # Удаление пробелов внутри скобок
+    patbefore = r'\s+(?=\()'
+    # Удаление пробелов перед скобкой
+
+    odin = re.sub(patin, '', sinno)
+    dva = re.sub(patbefore, '', odin)
+    return dva
 
 
 def TypoDefo(sinno: str) -> tuple:
-    return (0,1,2,3)
+    '''
+    Разбираем слово определяющее тип поля БД
+    Возвращаем кортеж из 4 переменных
+    mso - mssql имя в нижнем регистре
+    dln - длина поля, если присутствует в описании (не физическая)
+          по-умолчанию 0
+    fUser - флаг пользовательскоко типа поля по-умолчанию False
+    uNamo - пользовательское имя поля
+    '''
+    (mso, dln) = SkobkoType(sinno)
+    fUser = False
+    uNamo = ''
+    if mso in DUserTypes.keys():
+        fUser = True
+        uNamo = mso
+        (mso, dln) = SkobkoType(DUserTypes[uNamo])
+    if mso not in LMsoTypes:
+        if mso not in LNewTypes:
+            LNewTypes.append(mso)
+    return (mso, dln, fUser, uNamo)
+
+
+def SkobkoType(sinno: str) -> tuple:
+    if sinno.endswith(')'):
+        dd = sinno.split('(')
+        mso = dd[0].lower()
+        zz = dd[1][:-1].lower()
+        if zz == 'max':
+            dln = 8060
+        else:
+            dln = int(zz)
+    else:
+        mso = sinno.lower()
+        dln = 0
+    return (mso, dln)
 
 
 def ConstraintParso(sinno: str, lwo: list, qwo: int) -> list:
