@@ -42,8 +42,13 @@ def main():
                               encoding="utf_8")
                     vx.write(minno)
                     vx.close()
-                    logger.debug("TabloSet %s", topo)
+#                    logger.debug("TabloSet %s", topo)
                     (fildy, constra) = FieldoParso(topo)
+                    (dTabo, dFildy, commento) = DescriptionParso(downo,
+                                                                 taboname)
+                    logger.debug("Des->%s", dTabo)
+                    if commento:
+                        logger.debug("Cmt->%s", commento)
                 numa += 1
                 minno = ''
             minno += line
@@ -117,14 +122,14 @@ def FieldoParso(sinno: str) -> tuple:
             logger.info("!!Более одного поля в строке %s", clo)
         for flo in lstro:
             lwo = re.split(r'\s+', flo.strip())
-            qwo = len(lwo)
             if lwo[0].lower() == 'constraint' or \
                lwo[0].lower() == 'primary' and lwo[1].lower() == 'key':
-                ogli = ConstraintParso(flo, lwo, qwo)
+                # logger.debug("Constraint %s", flo)
+                (pName, pQwo, pLiFi) = ConstraintParso(lwo)
+#               logger.debug("CoParso: %s -> %d %s", pName, pQwo, repr(pLiFi))
             else:
                 fildo = lwo[0]
                 (mso, dln, fUser, uNamo) = TypoDefo(lwo[1])
-                fana = False
                 fIdnty = False
                 fNullo = True  # Умолчание в MS SQL
                 fOgr = False
@@ -133,13 +138,12 @@ def FieldoParso(sinno: str) -> tuple:
                 nOgr = ''
                 kfa = 0
                 for (nn, ewa) in enumerate(lwo[2:]):
-                    if fana and kfa > 0:
+                    if kfa > 0:
                         kfa -= 1
                         continue
                     if ewa.lower() == 'not':
                         if lwo[nn+3].lower() == 'null':
                             fNullo = False
-                        fana = True
                         kfa = 1
                     elif ewa.lower() == 'null':
                         fNullo = True
@@ -147,7 +151,6 @@ def FieldoParso(sinno: str) -> tuple:
                         fOgr = True
                         nOgr = lwo[nn+3]
                         assert(lwo[nn+4].lower().startswith('default'))
-                        fana = True
                         kfa = 1
                     elif ewa.lower().startswith('default'):
                         fOgr = True
@@ -157,7 +160,6 @@ def FieldoParso(sinno: str) -> tuple:
                         else:
                             zOgr = lwo[nn+3]
                             kfa = 1
-                            fana = True
                         if zOgr.startswith("'"):
                             if zOgr.endswith("'"):
                                 # Очистка от одинарных кавычек
@@ -176,7 +178,6 @@ def FieldoParso(sinno: str) -> tuple:
                     elif ewa.lower() == 'collate':
                         fColla = True
                         assert(lwo[nn+3].lower() == 'database_default')
-                        fana = True
                         kfa = 1
                     elif (ewa.lower() == 'identity(1,1)' or
                           ewa.lower() == 'identity' or
@@ -185,10 +186,10 @@ def FieldoParso(sinno: str) -> tuple:
                         fIdnty = True
                     else:
                         logger.error("Нежданчик -> %s", ewa)
-                logger.debug(
-                 "Fildo: %s -> %s %s %s %s F-> %s N-> %s O-> %s %s %s C-> %s",
-                 fildo, mso, dln, fUser, uNamo, fIdnty, fNullo,
-                 fOgr, nOgr, zOgr, fColla)
+#                logger.debug(
+#                 "Fildo: %s -> %s %s %s %s F-> %s N-> %s O-> %s %s %s C-> %s",
+#                 fildo, mso, dln, fUser, uNamo, fIdnty, fNullo,
+#                 fOgr, nOgr, zOgr, fColla)
     return(fli, ogli)
 
 
@@ -246,8 +247,99 @@ def SkobkoType(sinno: str) -> tuple:
     return (mso, dln)
 
 
-def ConstraintParso(sinno: str, lwo: list, qwo: int) -> list:
-    return lwo
+def ConstraintParso(lwo: list) -> list:
+    '''
+    Первые предпосылки:
+    Перечень полей всегда в скобках у clustered
+    Иногда две закрывающиеся скобки из-за недоочистки
+    '''
+    pName = ''
+    pQwo = 0
+    pLiFi = []
+    kfa = 0
+    for (nn, elo) in enumerate(lwo):
+        if kfa > 0:
+            kfa -= 1
+            continue
+        if elo.lower() == 'constraint':
+            pName = lwo[nn+1]
+            kfa = 1
+        elif elo.lower() == 'primary':
+            assert(lwo[nn+1].lower() == 'key')
+            kfa = 1
+        elif elo.lower().startswith('clustered('):
+            dd = elo.split('(')
+            tt = dd[1][:-1]
+            if tt.endswith(')'):
+                tt = tt[:-1]
+            if ',' in tt:
+                pLiFi = tt.split(',')
+                pQwo = len(pLiFi)
+            else:
+                pLiFi.append(tt)
+                pQwo = 1
+        else:
+            logger.error("Нежданчик -> %s", elo)
+    return (pName, pQwo, pLiFi)
+
+
+def DescriptionParso(sinno: str, tabo: str) -> tuple:
+    '''
+    Первые предпосылки:
+    Описание поля бывает и многострочным.
+    Оставляем многострочность и обрабатываем её.
+    Опираемся на GO и sp_addextendedproperty 'MS_Description'
+    GO должно быть отдельным словом -> \sgo\s.
+    Предполагаем, что sp_addextendedproperty и MS_Description
+    находятся в одной строке.
+    '''
+    dTabo = ''
+    dFildy = {}
+    commento = ''
+    patgo = r'\sgo\s'
+    patdes = r"sp_addextendedproperty"
+    patelo = r"'(.+?)'"
+    bgo = re.split(patgo, sinno, flags=re.MULTILINE | re.IGNORECASE)
+    for elo in bgo:
+        bdes = re.split(patdes, elo,
+                        flags=re.MULTILINE | re.IGNORECASE)
+        if len(bdes) > 1:
+            for paro in bdes:
+                # Перед началом разбиения на части заменим две ''
+                # на одну "
+                if "''" in paro:
+                    paro = paro.replace("''", '"')
+                aa = re.findall(patelo, paro, flags=re.MULTILINE | re.DOTALL)
+                if aa:
+                    laa = len(aa)
+                    assert(aa[0].lower() == 'ms_description')
+                    assert(aa[4].lower() == 'table')
+                    assert(aa[5].lower() == tabo.lower())
+                    if laa == 6:
+                        # Таблица
+                        dTabo = aa[1]
+                    elif laa == 8:
+                        # Поле
+                        assert(aa[6].lower() == 'column')
+                        dFildy[aa[7].lower()] = aa[1]
+                    else:
+                        logger.error("!!НЕжданчик->%d %s", laa, paro)
+        else:
+            # Ищем комменты двух типов -- и /* */
+            patzve = r'/\*.*\*/'
+            aa = re.search(patzve, elo, flags=re.MULTILINE | re.DOTALL)
+            if aa:
+                commento = aa.group()
+            else:
+                astro = re.split(r'\n', elo)
+                for stro in astro:
+                    if stro.strip().startswith('--'):
+                        a1 = stro.strip()[2:]
+                        if commento:
+                            commento += r'\n' + a1
+                        else:
+                            commento = a1
+    return (dTabo, dFildy, commento)
 
 
 if __name__ == '__main__':
