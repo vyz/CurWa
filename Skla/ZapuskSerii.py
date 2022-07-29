@@ -38,6 +38,7 @@ def gettablolist(fletta: str, staro: int):
     SELECT name FROM sys.objects 
     WHERE type in (N'U') 
     and  [name] LIKE '{sha}___'
+    ORDER BY name
     """
     reto = []
     qvero = zaprosTablo.format(sha=fletta)
@@ -82,7 +83,7 @@ def zabrosbazy(bname: str, dibo: str):
 		    @aParamo varchar(4000),	--Изменяемые параметры и их значения
 		    @iLogo bit,             --Требуется ли запись в Лог
 		    @idaLogo bigint,		--ID записи Дубля в Лог
-		    @tLogo varchar(100)     --Текст сообщения для лога    
+		    @tLogo varchar(1000)     --Текст сообщения для лога    
 
     Declare @nzapo int = 0
     Declare @dstarto datetime = GETDATE()
@@ -139,6 +140,9 @@ def getFromYaml():
 if __name__ == '__main__':
     logging.config.fileConfig('logging.conf')
     logger = logging.getLogger('Rutto')
-    logger.info("Begino")
-    main()
-    logger.info("Endo")
+    logger.info("Begino %s", __file__)
+    try:
+        main()
+    except BaseException:
+        logger.exception("Vzval")
+    logger.info("Endo %s", __file__)
