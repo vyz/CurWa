@@ -9,7 +9,7 @@ import numpy as np
 
 
 def main():
-    with open('graPlanovik.pickle', 'rb') as f:
+    with open('graPlanovik704.pickle', 'rb') as f:
         G = pickle.load(f)
     nodesize = [G.out_degree(v) * 30 for v in G]
     edgelabels = {(u, v): G.edges[u, v]['Label'] for u, v in G.edges()}
@@ -29,7 +29,7 @@ def main():
     # Title/legend
     font = {"fontname": "Helvetica", "color": "k", "fontweight": "bold",
             "fontsize": 14}
-    ax.set_title("8. Модуль Плановик", font)
+    ax.set_title("6. Модуль Плановик", font)
     # Change font color for legend
     font["color"] = "r"
     # Resize figure for label readibility

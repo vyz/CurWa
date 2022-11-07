@@ -8,13 +8,12 @@ import pickle
 
 
 def main():
-    with open('graPlanovik704.pickle', 'rb') as f:
+    with open('graPlanovik.pickle', 'rb') as f:
         G = pickle.load(f)
     nodesize = [G.out_degree(v) * 30 for v in G]
     edgelabels = {(u, v): G.edges[u, v]['Label'] for u, v in G.edges()}
     pos = nx.multipartite_layout(G, subset_key='Level', align='vertical',
                                  scale=1)
-#    pos = nx.kamada_kawai_layout(G, pos=pos)
     fig, ax = plt.subplots(figsize=(17, 8))
     nx.draw_networkx_edges(G, pos, alpha=0.3, edge_color="m")
     nx.draw_networkx_edge_labels(G, pos, edgelabels)

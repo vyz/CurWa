@@ -7,15 +7,16 @@ import networkx as nx
 import pickle
 
 
+picleGraphFile = "grapho704.pickle"
+
+
 def main():
-    with open('graPlanovik704.pickle', 'rb') as f:
+    with open(picleGraphFile, 'rb') as f:
         G = pickle.load(f)
     nodesize = [G.out_degree(v) * 30 for v in G]
     edgelabels = {(u, v): G.edges[u, v]['Label'] for u, v in G.edges()}
-    pos = nx.multipartite_layout(G, subset_key='Level', align='vertical',
-                                 scale=1)
-#    pos = nx.kamada_kawai_layout(G, pos=pos)
-    fig, ax = plt.subplots(figsize=(17, 8))
+    pos = nx.kamada_kawai_layout(G)
+    fig, ax = plt.subplots(figsize=(10, 14))
     nx.draw_networkx_edges(G, pos, alpha=0.3, edge_color="m")
     nx.draw_networkx_edge_labels(G, pos, edgelabels)
     nx.draw_networkx_nodes(G, pos, node_size=nodesize, node_color="#210070",
@@ -25,7 +26,7 @@ def main():
     # Title/legend
     font = {"fontname": "Helvetica", "color": "k", "fontweight": "bold",
             "fontsize": 14}
-    ax.set_title("6. Модуль Плановик", font)
+    ax.set_title("Документация СПРУТ-ОКП", font)
     # Change font color for legend
     font["color"] = "r"
     # Resize figure for label readibility

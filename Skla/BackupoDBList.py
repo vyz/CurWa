@@ -21,7 +21,7 @@ def main():
 
 def backupostroka(dibo: str, frago: str):
     zapros = """
-    BACKUP DATABASE {dibo} TO DISK = N'D:\Backupo\Auto2112\{frago}.bak'
+    BACKUP DATABASE {dibo} TO DISK = N'D:\Backupo\Auto2209\{frago}.bak'
     WITH NOFORMAT, NAME = N'{frago}_backauto', SKIP;
     go
     """

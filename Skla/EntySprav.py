@@ -3,7 +3,7 @@ import logging.config
 import pymssql
 
 server = r"VALKOV\LOPO"
-dbnameGet = r"O642"
+dbnameGet = r"OKP"
 ConnPropy = """
 SET ARITHABORT ON;
 SET CONCAT_NULL_YIELDS_NULL ON;
@@ -23,7 +23,7 @@ mal = 0
 
 def main():
     listo = gettablolist()
-    fo = open("EntySprav642.txt", mode='w', encoding='utf-8-sig')
+    fo = open("EntySprav710.txt", mode='w', encoding='utf-8-sig')
     formatto = "{i:>2} {texo:<{mnm}} {tablo:<{mtb}} {alo:<{mal}}\n"
     i = 0
     for z in listo:

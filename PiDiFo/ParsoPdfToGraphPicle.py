@@ -9,8 +9,9 @@ import networkx as nx
 import pickle
 
 
-pdf_document = r"E:\KoPo\Helpo\User_6_4_2_211209.pdf"
-picleGraphFile = "grapho642.pickle"
+pdf_document = r"E:\KoPo\Helpo\User_7_0_4_220712.pdf"
+picleGraphFile = "grapho704.pickle"
+
 
 def main():
     doc = fitz.open(pdf_document)
@@ -18,9 +19,9 @@ def main():
     vi = 0
     diConto = {}
     kid = 1
-    for numo in range(1, doc.pageCount):
+    for numo in range(1, doc.page_count):
         if numo < contomaxpage:
-            kk, dico = ParsoContoPage(numo, doc.loadPage(numo))
+            kk, dico = ParsoContoPage(numo, doc.load_page(numo))
             if kk > 0:
                 contomaxpage = kk
             for key, valo in dico.items():
@@ -31,7 +32,7 @@ def main():
             vi = numo
             break
     ll = len(diConto)
-    logger.debug("Qvo : {} numo : {}".format(ll, numo))
+    logger.debug("Qvo: {} numo: {} pages: {}".format(ll, numo, doc.page_count))
     gro = CreateNW(diConto)
     with open(picleGraphFile, 'wb') as f:
         pickle.dump(gro, f, pickle.HIGHEST_PROTOCOL)
@@ -47,7 +48,7 @@ def ParsoContoPage(numo: int, pago) -> tuple:
     KContent = "Table of Contents"
     dicto = {}
     reto = -1
-    leli = pago.getLinks()
+    leli = pago.get_links()
     frox = 0.0
     for elo in leli:
         if frox != elo['from'].bl.y:
@@ -60,10 +61,10 @@ def ParsoContoPage(numo: int, pago) -> tuple:
                                  pigo=pigo+1, toxo=toxo, toyo=toyo)
             dicto[xrefa] = refa
     if leli:
-        linko = pago.firstLink
+        linko = pago.first_link
         urolast = ''
         while linko:
-            if linko.isExternal:
+            if linko.is_external:
                 uro = linko.uri
                 # Нонсенс
                 raise RuntimeError("Внешняя ссылка в содержании -> " + uro)
@@ -79,7 +80,7 @@ def ParsoContoPage(numo: int, pago) -> tuple:
                         del dicto[xrefa]
                         logger.debug("Двухстрочный заголовок %s", uro)
             linko = linko.next
-    tepa = pago.getTextPage()
+    tepa = pago.get_textpage()
     texo = tepa.extractText()
     kk = len(texo)
     if kk > 0:
@@ -133,14 +134,13 @@ def CreateNW(nn: dict) -> nx.DiGraph:
     rooto = clConta.Conta(xrefa=0, frox=0, fropigo=1, pigo=9999,
                           toxo=9999.99, toyo=9999.99, koda='0', namo='Ruto',
                           ida=0)
-    G = nx.DiGraph(None, Level=0, Label=' ', Conto=rooto)
+    G = nx.DiGraph(None, Level=0, Label=' ', Father=-1, Conto=rooto)
     G.add_node(rooto.ida, Label=rooto.namo)
     slv = 0
     skey = rooto.ida
     Fth = {}
     for valo in nn.values():
         (key, lv, lbl) = ContaParsoItem(valo)
-        G.add_node(key, Level=lv, Label=lbl, Conto=valo)
         if lv > slv:
             Fth[slv] = skey
             slv = lv
@@ -149,6 +149,7 @@ def CreateNW(nn: dict) -> nx.DiGraph:
         else:
             slv = lv
         skey = key
+        G.add_node(key, Level=lv, Label=lbl, Father=Fth[lv-1], Conto=valo)
         G.add_edge(Fth[lv-1], key, Label=valo.koda)
     return G
 

@@ -7,7 +7,7 @@ import networkx as nx
 import pickle
 
 
-picleGraphFile = "grapho642.pickle"
+picleGraphFile = "grapho704.pickle"
 
 
 def main():

@@ -1,77 +1,50 @@
-﻿
-    BACKUP DATABASE Penzo TO DISK = N'D:\Backupo\Auto2112\Penzo.bak'
-    WITH NOFORMAT, NAME = N'Penzo_backauto', SKIP;
+﻿   
+    
+    BACKUP DATABASE Urfu TO DISK = N'D:\Backupo\Auto2209\Urfu.bak'
+    WITH NOFORMAT, NAME = N'Urfu_backauto', SKIP;
     go
     
-    BACKUP DATABASE Penzo_Service TO DISK = N'D:\Backupo\Auto2112\PenzoServ.bak'
-    WITH NOFORMAT, NAME = N'PenzoServ_backauto', SKIP;
+    BACKUP DATABASE Urfu_Service TO DISK = N'D:\Backupo\Auto2209\UrfuServ.bak'
+    WITH NOFORMAT, NAME = N'UrfuServ_backauto', SKIP;
     go
     
-    BACKUP DATABASE Radio0818 TO DISK = N'D:\Backupo\Auto2112\Radio0818.bak'
-    WITH NOFORMAT, NAME = N'Radio0818_backauto', SKIP;
+    BACKUP DATABASE Vera_Service TO DISK = N'D:\Backupo\Auto2209\VeraServ.bak'
+    WITH NOFORMAT, NAME = N'VeraServ_backauto', SKIP;
     go
     
-    BACKUP DATABASE Radio0818_Service TO DISK = N'D:\Backupo\Auto2112\Radio0818Serv.bak'
-    WITH NOFORMAT, NAME = N'Radio0818Serv_backauto', SKIP;
+    BACKUP DATABASE Vertex0118_Service TO DISK = N'D:\Backupo\Auto2209\Vertex0118Serv.bak'
+    WITH NOFORMAT, NAME = N'Vertex0118Serv_backauto', SKIP;
     go
     
-    BACKUP DATABASE Sherman TO DISK = N'D:\Backupo\Auto2112\Sherman.bak'
-    WITH NOFORMAT, NAME = N'Sherman_backauto', SKIP;
+    BACKUP DATABASE Vertex0610 TO DISK = N'D:\Backupo\Auto2209\Vertex0610.bak'
+    WITH NOFORMAT, NAME = N'Vertex0610_backauto', SKIP;
     go
     
-    BACKUP DATABASE Sherman_Service TO DISK = N'D:\Backupo\Auto2112\ShermanServ.bak'
-    WITH NOFORMAT, NAME = N'ShermanServ_backauto', SKIP;
+    BACKUP DATABASE Vertex0610_Service TO DISK = N'D:\Backupo\Auto2209\Vertex0610Serv.bak'
+    WITH NOFORMAT, NAME = N'Vertex0610Serv_backauto', SKIP;
     go
     
-    BACKUP DATABASE Steklo0823 TO DISK = N'D:\Backupo\Auto2112\Steklo0823.bak'
-    WITH NOFORMAT, NAME = N'Steklo0823_backauto', SKIP;
+    BACKUP DATABASE Vertex0726 TO DISK = N'D:\Backupo\Auto2209\Vertex0726.bak'
+    WITH NOFORMAT, NAME = N'Vertex0726_backauto', SKIP;
     go
     
-    BACKUP DATABASE Steklo0823_Service TO DISK = N'D:\Backupo\Auto2112\Steklo0823Serv.bak'
-    WITH NOFORMAT, NAME = N'Steklo0823Serv_backauto', SKIP;
+    BACKUP DATABASE Vertex0726_Service TO DISK = N'D:\Backupo\Auto2209\Vertex0726Serv.bak'
+    WITH NOFORMAT, NAME = N'Vertex0726Serv_backauto', SKIP;
     go
     
-    BACKUP DATABASE Tracko TO DISK = N'D:\Backupo\Auto2112\Tracko.bak'
-    WITH NOFORMAT, NAME = N'Tracko_backauto', SKIP;
+    BACKUP DATABASE Vertex0909 TO DISK = N'D:\Backupo\Auto2209\Vertex0909.bak'
+    WITH NOFORMAT, NAME = N'Vertex0909_backauto', SKIP;
     go
     
-    BACKUP DATABASE Tula1021 TO DISK = N'D:\Backupo\Auto2112\Tula1021.bak'
-    WITH NOFORMAT, NAME = N'Tula1021_backauto', SKIP;
+    BACKUP DATABASE Vertex0909_Service TO DISK = N'D:\Backupo\Auto2209\Vertex0909Serv.bak'
+    WITH NOFORMAT, NAME = N'Vertex0909Serv_backauto', SKIP;
     go
     
-    BACKUP DATABASE Tula1021_Service TO DISK = N'D:\Backupo\Auto2112\Tula1021Serv.bak'
-    WITH NOFORMAT, NAME = N'Tula1021Serv_backauto', SKIP;
+    BACKUP DATABASE zummo TO DISK = N'D:\Backupo\Auto2209\zummo.bak'
+    WITH NOFORMAT, NAME = N'zummo_backauto', SKIP;
     go
     
-    BACKUP DATABASE Umash TO DISK = N'D:\Backupo\Auto2112\Umash.bak'
-    WITH NOFORMAT, NAME = N'Umash_backauto', SKIP;
-    go
-    
-    BACKUP DATABASE Umash_Service TO DISK = N'D:\Backupo\Auto2112\UmashServ.bak'
-    WITH NOFORMAT, NAME = N'UmashServ_backauto', SKIP;
-    go
-    
-    BACKUP DATABASE Vektor TO DISK = N'D:\Backupo\Auto2112\Vektor.bak'
-    WITH NOFORMAT, NAME = N'Vektor_backauto', SKIP;
-    go
-    
-    BACKUP DATABASE Vektor_Service TO DISK = N'D:\Backupo\Auto2112\VektorServ.bak'
-    WITH NOFORMAT, NAME = N'VektorServ_backauto', SKIP;
-    go
-    
-    BACKUP DATABASE Vertex TO DISK = N'D:\Backupo\Auto2112\Vertex.bak'
-    WITH NOFORMAT, NAME = N'Vertex_backauto', SKIP;
-    go
-    
-    BACKUP DATABASE Vertex_Service TO DISK = N'D:\Backupo\Auto2112\VertexServ.bak'
-    WITH NOFORMAT, NAME = N'VertexServ_backauto', SKIP;
-    go
-    
-    BACKUP DATABASE Vysota TO DISK = N'D:\Backupo\Auto2112\Vysota.bak'
-    WITH NOFORMAT, NAME = N'Vysota_backauto', SKIP;
-    go
-    
-    BACKUP DATABASE Vysota_Service TO DISK = N'D:\Backupo\Auto2112\VysotaServ.bak'
-    WITH NOFORMAT, NAME = N'VysotaServ_backauto', SKIP;
+    BACKUP DATABASE zummo_Service TO DISK = N'D:\Backupo\Auto2209\zummoServ.bak'
+    WITH NOFORMAT, NAME = N'zummoServ_backauto', SKIP;
     go
     

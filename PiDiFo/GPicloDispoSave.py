@@ -7,14 +7,15 @@ import pickle
 
 
 picleGraphAll = "grapho704.pickle"
-picleGraphPlanovik = "graPlanovik704.pickle"
+picleGraphPlanovik = "graDispo704.pickle"
 
 
 def main():
     with open(picleGraphAll, 'rb') as f:
         BiG = pickle.load(f)
     # 71 - это ID узла Модуль Плановик
-    K = nx.bfs_tree(BiG, source=71)
+    # 170 - это ID узла Модуль Диспетчер
+    K = nx.bfs_tree(BiG, source=170)
     derevo = nx.algorithms.tree.recognition.is_tree(K)
     logger.debug(derevo)
     G = BiG.subgraph(K.nodes()).copy()

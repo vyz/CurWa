@@ -6,12 +6,12 @@ import networkx as nx
 import pickle
 
 
-picleGraphPlanovik = "graPlanovik704.pickle"
-picleGraphPlanovikMod = "graPlanovik.pickle"
-txtOutFile = "planovik704.txt"
+picleGraphPlanovik = "graDispo704.pickle"
+picleGraphPlanovikMod = "graDispo.pickle"
+txtOutFile = "Dispo704.txt"
 pstarto = 0
-# Номер страницы, с которой начинается следующий раздел (Диспетчер)
-BegPageAfter = 307
+# Номер страницы, с которой начинается следующий раздел (Склад)
+BegPageAfter = 407
 
 
 def main():
